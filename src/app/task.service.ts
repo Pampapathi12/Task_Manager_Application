@@ -7,7 +7,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-  private tasks: any[] = [];
+  private tasks: any[] = [ { title: 'Pampapathi', description: 'MCA', status: false },
+  { title: 'Address', description: 'Bangalore', status: true },
+];
   tasks$ = new BehaviorSubject<any[]>(this.tasks);
 
   getTasks() {

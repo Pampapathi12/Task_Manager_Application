@@ -13,6 +13,7 @@
                 <tr>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -20,6 +21,7 @@
                 <tr *ngFor="let task of tasks; let i = index">
                     <td>{{ task.title }}</td>
                     <td>{{ task.description }}</td>
+                    <td>{{ task.status ? 'Completed' : 'Not Completed' }}</td>
                     <td>
                         <button class="btn btn-primary mr-2" [routerLink]="['/tasks', i]">Edit</button>
                         <button class="btn btn-danger" (click)="showDeleteModal(i)">Delete</button>
