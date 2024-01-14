@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* styles.css */
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: skyblue; /* Add this line to set the background color */
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #ffffff; /* Add this line if you want a white background inside the container */
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
