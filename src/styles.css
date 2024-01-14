@@ -1,4 +1,6 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.min.css';
+
 
 /* styles.css */
 /* styles.css */
@@ -27,3 +29,7 @@ body {
     background-color: #dc3545;
     color: #fff;
 }
+.completed {
+    text-decoration: line-through;
+  }
+  

@@ -19,12 +19,15 @@
             </thead>
             <tbody>
                 <tr *ngFor="let task of tasks; let i = index">
-                    <td>{{ task.title }}</td>
-                    <td>{{ task.description }}</td>
+                    <td> <span [class.completed]="task.completed">{{ task.title }}</span></td>
+                    
+                   <td> <span [class.completed]="task.completed">{{ task.description }}</span></td> 
                     <td>{{ task.status ? 'Completed' : 'Not Completed' }}</td>
                     <td>
                         <button class="btn btn-primary mr-2" [routerLink]="['/tasks', i]">Edit</button>
                         <button class="btn btn-danger" (click)="showDeleteModal(i)">Delete</button>
+                        <i class="fa" [ngClass]="{'fa-check-circle': task.completed, 'fa-circle': !task.completed}"
+                            (click)="toggleCompletionStatus(i)"></i>
                     </td>
                 </tr>
             </tbody>

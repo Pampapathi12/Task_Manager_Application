@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from '../task.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-task-form',
@@ -21,7 +22,8 @@ export class TaskFormComponent implements OnInit {
     private fb: FormBuilder,
     public taskService: TaskService, // Make taskService public if needed
     public route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -37,10 +39,17 @@ export class TaskFormComponent implements OnInit {
   onSubmit() {
     const formValue = this.taskForm.value;
     const index = this.route.snapshot.params['index'];
+    if (!formValue.title || !formValue.description) {
+      // Show Toastr error message and return from the function
+      this.toastr.error('Title and Description are required.', 'Error', { positionClass: 'toast-top-right' });
+      return;
+    }
 
     if (index !== undefined) {
+     
       this.taskService.editTask(index, formValue);
     } else {
+     
       this.taskService.addTask(formValue);
     }
 
